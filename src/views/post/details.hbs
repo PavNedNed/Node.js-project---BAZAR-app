@@ -1,0 +1,58 @@
+{{setTitle 'Offer Details | Online Bazar'}}
+
+<main>
+  <section class="details">
+    <div class="details-image">
+      <img src="{{post.imageUrl}}" alt="{{post.title}}" />
+    </div>
+
+    <div class="details-info">
+      <h2>{{post.title}}</h2>
+      <span class="badge">{{post.category}}</span>
+
+      <ul class="details-meta">
+        <li><strong>Price:</strong> €{{post.price}}</li>
+        <li><strong>Author:</strong> {{post.author.username}}</li>
+        <li><strong>Followers:</strong> {{followsCount}}</li>
+        <li><strong>Created:</strong> {{dateFormatted}}</li>
+      </ul>
+
+      <p class="details-desc">
+        {{post.description}}
+      </p>
+
+      <!-- Guest: no action buttons -->
+      {{#if user}}
+      {{#if isOwner}}
+      <!-- Owner actions -->
+      <div class="actions">
+        <a href="/post/{{post.id}}/edit" class="btn btn-primary">Edit</a>
+        <a href="/post/{{post.id}}/delete" class="btn btn-danger">Delete</a>
+      </div>
+      {{else if hasFollowed}}
+        <!-- Non-owner, already followed -->
+        <p class="followers-note">You are following this offer.</p>
+        <div class="actions">
+          <a href="/post/{{post.id}}/unfollow" class="btn btn-outline">Unfollow</a>
+          {{#if isAdmin}}
+          <a href="/post/{{post.id}}/delete" class="btn btn-danger">Delete (Admin)</a>
+          {{/if}}
+        </div>
+        
+      {{else}}
+      <!-- Non-owner, not followed -->
+          {{#if isAdmin}}
+          <div class="actions">
+            <a href="/post/{{post.id}}/follow" class="btn btn-secondary">Follow</a>
+            <a href="/post/{{post.id}}/delete" class="btn btn-danger">Delete (Admin)</a>
+          </div>
+          {{else}}
+          <div class="actions">
+              <a href="/post/{{post.id}}/follow" class="btn btn-secondary">Follow</a>
+          </div>
+          {{/if}}
+      {{/if}}
+      {{/if}}
+    </div>
+  </section>
+</main>

@@ -1,0 +1,81 @@
+{{setTitle 'Admin page | Online Bazar'}}
+
+<main>
+    <h2 class="section-title">Admin Panel</h2>
+    <p style="color: var(--muted); margin-bottom: 1.5rem;">
+      Manage platform users and offers. Removing a user will also remove their posts.
+    </p>
+
+    <div class="admin-grid">
+      <!-- Users -->
+      <section class="admin-section">
+        <h3>Users</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Posts</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each profiles}}
+              <tr>
+                <td>{{this.username}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.role}}</td>
+                <td>{{this._count.posts}}</td>
+
+                <td>
+                  {{#if (isAdminProfile this.role)}}
+                  <!-- Cannot delete own account -->
+                  <span style="color: var(--muted); font-size: 0.85rem;">—</span>
+                  {{else}}
+                  <a href="/auth/{{this.id}}/delete" class="btn btn-danger btn-sm">Remove</a>
+                  {{/if}}
+                </td>
+
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Posts -->
+      <section class="admin-section">
+        <h3>Posts</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Author</th>
+                <th>Followers</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each posts}}
+              <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.category}}</td>
+                <td>€{{this.price}}</td>
+                <td>{{this.author.username}}</td>
+                <td>{{this.followers.length}}</td>
+                <td>
+                  <a href="/post/{{this.id}}/delete" class="btn btn-danger btn-sm">Remove</a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>

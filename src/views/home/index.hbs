@@ -1,0 +1,31 @@
+{{setTitle 'Home | Online Bazar'}}
+
+<main>
+    <section class="hero">
+      <h1>Find treasures. Sell smarter.</h1>
+      <p>
+        Welcome to Online Bazar — browse fresh offers from the community,
+        publish your own listings, and follow the deals you care about.
+      </p>
+      <a href="/post/dashboard" class="btn btn-primary">Browse Catalog</a>
+    </section>
+
+    <h2 class="section-title">Latest Offers</h2>
+
+    <!-- If there are posts -->
+    <section class="cards">
+      {{#each posts}}
+      <article class="card">
+        <img src="{{this.imageUrl}}" alt="{{this.title}}" />
+        <div class="card-body">
+          <span class="badge">{{this.category}}</span>
+          <h3>{{this.title}}</h3>
+          <p class="price">€{{this.price}}</p>
+          <a href="/post/{{this.id}}" class="btn btn-secondary btn-sm">Details</a>
+        </div>
+      </article>
+      {{else}}
+      <p class="empty">No offers yet. Be the first to post!</p>
+      {{/each}}
+    </section>
+  </main>

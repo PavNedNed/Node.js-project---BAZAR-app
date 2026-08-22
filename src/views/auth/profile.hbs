@@ -1,0 +1,30 @@
+{{setTitle 'Profile page | Online Bazar'}}
+
+<main>
+  <section class="profile-header">
+    <h2>{{user.username}}</h2>
+    <p>Email: {{user.email}}</p>
+    <p>My offers: {{posts.length}}</p>
+  </section>
+
+  <h2 class="section-title">My Offers</h2>
+
+  <!-- If user has posts -->
+  <section class="cards">
+
+    {{#each posts}}
+    <article class="card">
+      <img src="{{this.imageUrl}}" alt="{{this.title}}" />
+      <div class="card-body">
+        <span class="badge">{{this.category}}</span>
+        <h3>{{this.title}}</h3>
+        <p class="price">€{{this.price}}</p>
+        <a href="/post/{{this.id}}" class="btn btn-secondary btn-sm">Details</a>
+      </div>
+    </article>
+    {{else}}
+      <p class="empty">You have not published any offers yet.</p>
+    {{/each}}
+
+  </section>
+</main>

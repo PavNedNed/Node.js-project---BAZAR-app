@@ -1,0 +1,22 @@
+{{setTitle 'Catalog | Online Bazar'}}
+
+<main>
+    <h2 class="section-title">All Offers</h2>
+
+    <!-- If there are posts -->
+    <section class="cards">
+      {{#each posts}}
+      <article class="card">
+        <img src="{{this.imageUrl}}" alt="{{this.title}}" />
+        <div class="card-body">
+          <span class="badge">{{this.category}}</span>
+          <h3>{{this.title}}</h3>
+          <p class="price">€{{this.price}}</p>
+          <a href="/post/{{this.id}}" class="btn btn-secondary btn-sm">Details</a>
+        </div>
+      </article>
+      {{else}}
+      <p class="empty">No offers yet. Be the first to post!</p>
+      {{/each}}
+    </section>
+  </main>

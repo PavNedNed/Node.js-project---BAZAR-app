@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{#if pageTitle}}{{pageTitle}}{{else}}Online Bazar{{/if}}</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/images/logo.png" alt="Online Bazar Logo" />
+      </a>
+
+      {{#if user}}
+      <nav>
+        <span class="welcome">Welcome, {{user.username}}!</span>
+        <a class="{{isActive currentPage 'home'}}" href="/">Home</a>
+        <a class="{{isActive currentPage 'catalog'}}" href="/post/dashboard">Catalog</a>
+        <a class="{{isActive currentPage 'create'}}" href="/post/create">Create Offer</a>
+        <a class="{{isActive currentPage 'profile'}}" href="/auth/profile">Profile</a>
+        {{#if isAdmin}}
+          <a class="{{isActive currentPage 'admin'}}" href="/auth/admin">Admin Panel</a>          
+        {{/if}}
+        <a href="/auth/logout">Logout</a>
+      </nav>
+
+      {{else}}
+      <nav>
+        <a class="{{isActive currentPage 'home'}}" href="/">Home</a>
+        <a class="{{isActive currentPage 'catalog'}}" href="/post/dashboard">Catalog</a>
+        <a class="{{isActive currentPage 'login'}}" href="/auth/login">Login</a>
+        <a class="{{isActive currentPage 'register'}}" href="/auth/register">Register</a>
+      </nav>
+      {{/if}}
+    </div>
+  </header>
+
+  {{#if error}}
+  <div>
+    <div class="notification">
+      <p class="alert alert-error">{{error}}</p>
+    </div>
+  </div>
+  {{/if}}
+
+  {{{body}}}
+
+  <footer>
+    <p>&copy; Online Bazar. All rights reserved. Pavel Nedelchev</p>
+  </footer>
+</body>
+
+</html>
