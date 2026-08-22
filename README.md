@@ -12,11 +12,11 @@
 - Bcrypt;
 
 ## Summary
-The application has a seed script that loads 4 listings with implicit owner relations to 2 users.
-The logged-in users can load all pages with authentications, they can do CRUD operations on their publications and can like publications that are not theirs.
-The users that are NOT logged in cannot load the Create, Edit, Delete functionality.
-In the seed script is added an admin profile with password(admin123).
-The project includes an admin panel that allows the admin to delete users and listings.
+The application has a seed script that loads 4 listings with implicit owner relations to 2 users.\
+The logged-in users can load all pages with authentications, they can do CRUD operations on their publications and can like publications that are not theirs.\
+The users that are NOT logged in cannot load the Create, Edit, Delete functionality.\
+In the seed script is added an admin profile with password(admin123).\
+The project includes an admin panel that allows the admin to delete users and listings.\
 There is a single REST API endpoint showing the latest 3 listings (api/posts/top).
 
 ## How to start
@@ -28,5 +28,5 @@ Run the following commands:
 4. npx prisma generate
 5. npm run dev - to start the server
 
-I have left the .env.example file - you will have to edit it's name to just ".env".
+I have left the .env.example file - you will have to edit it's name to just ".env".\
 You can change the DATABASE_URL & JWT_SECRET as you wish.
