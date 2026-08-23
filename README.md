@@ -13,11 +13,17 @@
 
 ## Summary
 The application has a seed script that loads 4 listings with implicit owner relations to 2 users.\
-The logged-in users can load all pages with authentications, they can do CRUD operations on their publications and can like publications that are not theirs.\
+The logged-in users can load all pages with authentication, they can do CRUD operations on their publications and can like publications that are not theirs.\
 The users that are NOT logged in cannot load the Create, Edit, Delete functionality.\
-In the seed script is added an admin profile with password(admin123).\
-The project includes an admin panel that allows the admin to delete users and listings.\
-There is a single REST API endpoint showing the latest 3 listings (api/posts/top).
+In the seed script is added an admin profile, that can access an admin panel, which allows the admin to delete users and listings.\
+There is a single REST API endpoint showing the latest 3 listings (api/posts/top).\
+\
+The seeded users have the following login credentials:\
+| EMAIL    | PASSWORD |
+| -------- | ------- |
+| admin@abv.bg | admin123 |
+| pavel@abv.bg | pavel123 |
+| mitko@abv.bg | mitko123 |
 
 ## How to start
 Download the project and open it in a code editor(like VSCode).
