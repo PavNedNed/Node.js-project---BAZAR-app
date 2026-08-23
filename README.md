@@ -18,7 +18,7 @@ The users that are NOT logged in cannot load the Create, Edit, Delete functional
 In the seed script is added an admin profile, that can access an admin panel, which allows the admin to delete users and listings.\
 There is a single REST API endpoint showing the latest 3 listings (api/posts/top).\
 
-The seeded users have the following login credentials:\
+The seeded users have the following login credentials:
 | EMAIL    | PASSWORD |
 | -------- | ------- |
 | admin@abv.bg | admin123 |
