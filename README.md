@@ -16,7 +16,7 @@ The application has a seed script that loads 4 listings with implicit owner rela
 The logged-in users can load all pages with authentication, they can do CRUD operations on their publications and can like publications that are not theirs.\
 The users that are NOT logged in cannot load the Create, Edit, Delete functionality.\
 In the seed script is added an admin profile, that can access an admin panel, which allows the admin to delete users and listings.\
-There is a single REST API endpoint showing the latest 3 listings (api/posts/top).\
+There is a single REST API endpoint showing the latest 3 listings (api/posts/top).
 
 The seeded users have the following login credentials:
 | EMAIL    | PASSWORD |
