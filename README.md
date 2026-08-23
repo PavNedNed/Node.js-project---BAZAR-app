@@ -17,7 +17,7 @@ The logged-in users can load all pages with authentication, they can do CRUD ope
 The users that are NOT logged in cannot load the Create, Edit, Delete functionality.\
 In the seed script is added an admin profile, that can access an admin panel, which allows the admin to delete users and listings.\
 There is a single REST API endpoint showing the latest 3 listings (api/posts/top).\
-\
+
 The seeded users have the following login credentials:\
 | EMAIL    | PASSWORD |
 | -------- | ------- |
